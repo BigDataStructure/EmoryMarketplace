@@ -45,7 +45,7 @@ const Login = () => {
             <input
               className="rounded-pill custom-input mb-2"
               type="email"
-              // pattern=".+emory\.edu"
+              pattern=".+emory\.edu"
               size="25"
               placeholder="Enter your Emory Email"
               // ref={email}
