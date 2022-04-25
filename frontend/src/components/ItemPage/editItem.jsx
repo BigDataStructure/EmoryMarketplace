@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Container } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
 import "./itempage.css";
+import FormData from "form-data";
 // import ProfilePic from "./ItemPageProfilePic";
 import { AuthContext } from "../../context/AuthContext";
 import mongoose from "mongoose";
@@ -45,25 +46,23 @@ const EditItem = () => {
   }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const formData = new FormData();
-
-    // formData.append(
-    //   "myFile",
-    //   this.state.selectedFile,
-    //   this.state.selectedFile.name
-    // );
-
-    // // Details of the uploaded file
-    // console.log(this.state.selectedFile);
-
-    // // Request made to the backend api
-    // // Send formData object
-    // axios.post("api/uploadfile", formData);
+    let imageUrl = product.image;
+    if (image) {
+      const formData = new FormData();
+      formData.append("file", image);
+      formData.append("upload_preset", "TESTUP");
+      console.log(formData);
+      const dataRes = await axios.post(
+        "https://api.cloudinary.com/v1_1/digf0lyi8/image/upload",
+        formData
+      );
+      imageUrl = dataRes.data.url;
+    }
 
     const updatedItem = {
       id: mongoose.Types.ObjectId(id),
       name: name,
-      image: product.image,
+      image: imageUrl,
       description: description,
       category: category,
       price: price,
@@ -100,7 +99,7 @@ const EditItem = () => {
                   className="mx-2"
                   type="file"
                   accept="image/*"
-                  onChange={(e) => setImage(e)}
+                  onChange={(e) => setImage(e.target.files[0])}
                 ></input>
               </div>
 

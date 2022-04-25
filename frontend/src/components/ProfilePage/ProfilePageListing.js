@@ -68,7 +68,7 @@ const Product = ({ product }) => {
                   className="card-img-top"
                   src={product.image}
                   variant="top"
-                  style={{ width: "87%" }}
+                  style={{ width: "300px", height: "400px" }}
                 />
               </Link>
             </div>
@@ -136,7 +136,7 @@ const Product = ({ product }) => {
                   className="card-img-top"
                   src={product.image}
                   variant="top"
-                  style={{ width: "87%" }}
+                  style={{ width: "300px", height: "400px" }}
                 />
               </Link>
             </div>
@@ -187,8 +187,8 @@ const Product = ({ product }) => {
               <Card.Img
                 className="card-img-top"
                 src="/images/sold-sign.png"
-                variant="bottom"
-                style={{ width: "65%" }}
+                variant=""
+                style={{ width: "70%", height: "60%" }}
               />
             </div>
           </div>

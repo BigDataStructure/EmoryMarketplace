@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import "./ProfilePage.css";
 import { Row, Col } from "react-bootstrap";
+import FormData from "form-data";
 
 // import Rating1 from "../userStars/userStars";
 import axios from "axios";
@@ -38,13 +39,19 @@ const EditProfilePage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const formData = new FormData();
-
-    // formData.append(
-    //   "myFile",
-    //   this.state.selectedFile,
-    //   this.state.selectedFile.name
-    // );
+    let imageUrl = user.image;
+    console.log(profilePic);
+    if (profilePic) {
+      const formData = new FormData();
+      formData.append("file", profilePic);
+      formData.append("upload_preset", "TESTUP");
+      console.log(formData);
+      const dataRes = await axios.post(
+        "https://api.cloudinary.com/v1_1/digf0lyi8/image/upload",
+        formData
+      );
+      imageUrl = dataRes.data.url;
+    }
 
     // // Details of the uploaded file
     // console.log(this.state.selectedFile);
@@ -55,7 +62,7 @@ const EditProfilePage = () => {
 
     const updatedUserProfile = {
       username: users.username,
-      image: users.image,
+      image: imageUrl,
       name: name,
       email: users.email,
       phone: phone,
@@ -95,7 +102,7 @@ const EditProfilePage = () => {
                       className="mx-2"
                       type="file"
                       accept="image/*"
-                      onChange={(e) => setProfilePic(e)}
+                      onChange={(e) => setProfilePic(e.target.files[0])}
                     ></input>
                   </h6>
                 </label>
