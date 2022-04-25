@@ -11,7 +11,6 @@ export default function Message({ message, own, sender }) {
     const fetchuser = async () => {
       const { data } = await axios.get("/api/users?userId=" + sender);
       setUser(data);
-      console.log(data);
     };
     fetchuser();
   }, []);

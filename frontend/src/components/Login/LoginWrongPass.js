@@ -61,10 +61,10 @@ const LoginWrongPass = () => {
               onChange={(e) => setPassword(e.target.value)}
             ></input>
             <br></br>
-            <Link className="m-2" to="/login/forgotPassword">
+            {/* <Link className="m-2" to="/login/forgotPassword">
               Forgot Password?
             </Link>
-            <br></br>
+            <br></br> */}
             <div className="m-2">
               <Button
                 className="rounded-pill custom-btn m-2"

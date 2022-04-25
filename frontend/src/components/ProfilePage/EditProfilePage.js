@@ -40,7 +40,7 @@ const EditProfilePage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let imageUrl = user.image;
-    console.log(profilePic);
+    //console.log(profilePic);
     if (profilePic) {
       const formData = new FormData();
       formData.append("file", profilePic);

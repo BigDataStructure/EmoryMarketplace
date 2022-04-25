@@ -51,7 +51,7 @@ const EditItem = () => {
       const formData = new FormData();
       formData.append("file", image);
       formData.append("upload_preset", "TESTUP");
-      console.log(formData);
+      // console.log(formData);
       const dataRes = await axios.post(
         "https://api.cloudinary.com/v1_1/digf0lyi8/image/upload",
         formData
@@ -74,7 +74,7 @@ const EditItem = () => {
     };
 
     try {
-      console.log(id);
+      // console.log(id);
       await axios.put("/api/products/", updatedItem);
       navigate(`/product/${product._id}`, { replace: true });
     } catch (err) {}
