@@ -9,14 +9,12 @@ import {
 } from "../controllers/userController.js";
 import { protect } from "../middleware/authMiddleware.js";
 
-
 // router.get("/", getUserList);
-router.route("/").get(protect, getUserList);
+// router.route("/").get(protect, getUserList);
 router.route("/").post(registerUser);
 router.get("/:username", getUserListByUsername);
 
-
-//getting user info given userId 
+//getting user info given userId
 router.get("/", async (req, res) => {
   const userId = req.query.userId;
   const username = req.query.username;

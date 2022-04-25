@@ -30,7 +30,7 @@ const SellPage = () => {
       const formData = new FormData();
       formData.append("file", file);
       formData.append("upload_preset", "TESTUP");
-      console.log(formData);
+      // console.log(formData);
       const dataRes = await axios.post(
         "https://api.cloudinary.com/v1_1/digf0lyi8/image/upload",
         formData

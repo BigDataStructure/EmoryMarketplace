@@ -184,8 +184,14 @@ const App = () => {
         path="/chat"
         element={
           <>
-            <HeaderSignedIn />
-            <Messanger />
+            {user ? (
+              <>
+                <HeaderSignedIn />
+                <Messanger />
+              </>
+            ) : (
+              <Navigate to="/login" />
+            )}
           </>
         }
       ></Route>

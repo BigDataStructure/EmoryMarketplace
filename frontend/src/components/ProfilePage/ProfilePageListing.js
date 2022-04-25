@@ -68,7 +68,7 @@ const Product = ({ product }) => {
                   className="card-img-top"
                   src={product.image}
                   variant="top"
-                  style={{ width: "300px", height: "400px" }}
+                  style={{ maxWidth: "87%", maxHeight: "400px" }}
                 />
               </Link>
             </div>
@@ -136,7 +136,7 @@ const Product = ({ product }) => {
                   className="card-img-top"
                   src={product.image}
                   variant="top"
-                  style={{ width: "300px", height: "400px" }}
+                  style={{ maxWidth: "87%", maxHeight: "400px" }}
                 />
               </Link>
             </div>
