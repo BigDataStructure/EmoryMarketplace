@@ -5,9 +5,11 @@ import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import "./Login.css";
+import { useNavigate } from "react-router-dom/node_modules/react-router";
 // import { CircularProgress } from "@material-ui/core";
 
 const Login = () => {
+  const navigate = useNavigate();
   const { isFetching, dispatch } = useContext(AuthContext);
   const [email, setEmail] = useState("");
 
@@ -17,6 +19,8 @@ const Login = () => {
     // console.log(email);
     e.preventDefault();
     loginCall({ email: email, password: password }, dispatch);
+
+    navigate(`/login2`, { replace: true });
   };
 
   return (
@@ -41,7 +45,7 @@ const Login = () => {
             <input
               className="rounded-pill custom-input mb-2"
               type="email"
-              // pattern=".+emory\.edu"
+              pattern=".+emory\.edu"
               size="25"
               placeholder="Enter your Emory Email"
               // ref={email}

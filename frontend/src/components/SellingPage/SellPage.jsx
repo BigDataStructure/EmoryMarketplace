@@ -21,15 +21,28 @@ const SellPage = () => {
   const [price, setPrice] = useState(0);
   const [course, setCourse] = useState("");
   const [author, setAuthor] = useState("");
+
   const navigate = useNavigate();
   const submitHandler = async (e) => {
     e.preventDefault();
+    let imageUrl = "";
+    if (file) {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "TESTUP");
+      console.log(formData);
+      const dataRes = await axios.post(
+        "https://api.cloudinary.com/v1_1/digf0lyi8/image/upload",
+        formData
+      );
+      imageUrl = dataRes.data.url;
+    }
     const newProduct =
       //
       {
         user: user._id,
         name: name,
-        image: "/images/anthro.jpg",
+        image: imageUrl,
         description: description,
         category: category,
         price: price,

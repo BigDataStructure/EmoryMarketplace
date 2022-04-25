@@ -21,6 +21,7 @@ import IfOwnProfile from "./screens/ifOwnProfile";
 import EditItem from "./components/ItemPage/editItem";
 import HomePage from "./components/HomePage/HomePage";
 import SoldItemPage from "./components/ItemPage/SoldItemPage";
+import LoginWrongPass from "./components/Login/LoginWrongPass";
 
 // function App() {
 const App = () => {
@@ -173,6 +174,11 @@ const App = () => {
         path="/login"
         // element={ <Navigate to="/login" />}
         element={<>{user ? <Navigate to="/" /> : <LoginScreen />}</>}
+      ></Route>
+      <Route
+        path="/login2"
+        // element={ <Navigate to="/login" />}
+        element={<>{user ? <Navigate to="/" /> : <LoginWrongPass />}</>}
       ></Route>
       <Route
         path="/chat"
