@@ -62,10 +62,10 @@ const Login = () => {
               // ref={password}
               onChange={(e) => setePassword(e.target.value)}
             ></input>
-            <br></br>
+            {/* <br></br>
             <Link className="m-2" to="/login/forgotPassword">
               Forgot Password?
-            </Link>
+            </Link> */}
             <br></br>
             <div className="m-2">
               <Button
