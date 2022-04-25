@@ -5,11 +5,9 @@ import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import "./Login.css";
-import { useNavigate } from "react-router-dom/node_modules/react-router";
 // import { CircularProgress } from "@material-ui/core";
 
-const Login = () => {
-  const navigate = useNavigate();
+const LoginWrongPass = () => {
   const { isFetching, dispatch } = useContext(AuthContext);
   const [email, setEmail] = useState("");
 
@@ -19,8 +17,7 @@ const Login = () => {
     // console.log(email);
     e.preventDefault();
     loginCall({ email: email, password: password }, dispatch);
-
-    navigate(`/login2`, { replace: true });
+    window.location.reload(false);
   };
 
   return (
@@ -39,6 +36,7 @@ const Login = () => {
         <div className="fbody">
           <form id="Login" onSubmit={handleSubmit}>
             {/*<h1 className="login-wrapper">Logo</h1>*/}
+            <h5 style={{ color: "red" }}>Wrong Username or Password</h5>
             <h4 className="m-1">
               <i className="fas fa-user m-2"></i>Emory Email
             </h4>
@@ -95,4 +93,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginWrongPass;
