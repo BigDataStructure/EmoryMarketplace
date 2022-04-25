@@ -5,19 +5,19 @@ import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import "./Login.css";
+import { useNavigate } from "react-router";
 // import { CircularProgress } from "@material-ui/core";
 
 const LoginWrongPass = () => {
   const { isFetching, dispatch } = useContext(AuthContext);
   const [email, setEmail] = useState("");
 
-  const [password, setePassword] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     // console.log(email);
     e.preventDefault();
     loginCall({ email: email, password: password }, dispatch);
-    window.location.reload(false);
   };
 
   return (
@@ -58,7 +58,7 @@ const LoginWrongPass = () => {
               size="25"
               placeholder="Enter your password"
               // ref={password}
-              onChange={(e) => setePassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             ></input>
             <br></br>
             <Link className="m-2" to="/login/forgotPassword">
