@@ -10,7 +10,7 @@ const Header = () => {
         <Navbar className="header" variant="dark" collapseOnSelect>
           <Container>
             <LinkContainer to="/">
-              <Navbar.Brand>Emory Exchange</Navbar.Brand>
+              <Navbar.Brand><img src="/images/Ex.png" width="149" height="33"/></Navbar.Brand>
             </LinkContainer>
             <Nav className="ml-auto">
               <LinkContainer to="/">
